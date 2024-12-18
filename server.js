@@ -1,7 +1,8 @@
 import express from "express";
 import path from "path";
 import { fileURLToPath } from 'url';
-
+import clientsRoutes from "./src/api/routes/clients.js";
+import productsRoutes from "./src/api/routes/products.js";
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
@@ -10,10 +11,8 @@ const app = express();
 
 app.use(express.static(path.join(__dirname, '../dist')));
 
-app.get("/api/v1/hello", (_req, res) => {
-  res.json({ message: "Hello, asd!" });
-});
-
+app.use("/api/clients", clientsRoutes);
+app.use("/api/products", productsRoutes);
 app.get('*', (req, res) => {
   if (!req.path.startsWith('/api')) {
     res.sendFile(path.join(__dirname, 'index.html'));
