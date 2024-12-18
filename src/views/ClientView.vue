@@ -2,8 +2,7 @@
 import { ref, onMounted } from 'vue';
 import { useRoute } from 'vue-router';
 import { useClientsStore } from '../store/clients';
-import { storeToRefs } from 'pinia';
-
+// import Button from 'primevue/button';
 const clientsStore = useClientsStore();
 
 const { setSelectedClientById, getSelectedClient } = clientsStore;
@@ -16,7 +15,7 @@ const loading = ref(null);
 onMounted(async () => {
   loading.value = true;
   await setSelectedClientById(clientId);
-
+  
   try {
     client.value = getSelectedClient().value;
     loading.value = false;
@@ -31,6 +30,7 @@ onMounted(async () => {
   <div class="bg-gray-100" v-if="client">
     <h1 class="text-3xl font-bold underline">
       {{ client.givenName }} {{ client.familyName1 }}
+      <!-- <Button label="Back" @click="goBack" /> -->
     </h1>
   </div>
   <div class="bg-gray-100" v-else>
