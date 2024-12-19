@@ -11,6 +11,10 @@ export const useClientsStore = defineStore('clients', () => {
     return selectedClient.value;
   });
 
+  const getClients = () => computed(() => {
+    return clients.value;
+  });
+
   // Actions
   const setSelectedClientById = async (id) => {
     await fetchClientById(id);
@@ -27,10 +31,20 @@ export const useClientsStore = defineStore('clients', () => {
     selectedClient.value = await response.json();
   };
 
+  const fetchClientProducts = async () => {
+    const id = selectedClient.value.customerId;
+    const response = await fetch(`http://localhost:3000/api/products/${id}`);  
+    const products = await response.json();
+    if(products.length === 0) return [];
+    return products;
+  };
+
   return {
     clients,
     fetchClients,
     setSelectedClientById,
     getSelectedClient,
+    getClients,
+    fetchClientProducts,
   };
 });

@@ -13,7 +13,6 @@ const clients = [
     "givenName" : "Enriqueta",
     "familyName1" : "Parlem",
     "phone" : "668668668",
-    "products": [1111111, 1111112]
   },
   {
     "_id" : 555556,
@@ -24,7 +23,6 @@ const clients = [
     "givenName" : "Test",
     "familyName1" : "Test",
     "phone" : "668668668",
-    "products": []
   },
   {
     "_id" : 555557,
@@ -35,7 +33,6 @@ const clients = [
     "givenName" : "Jordi",
     "familyName1" : "Pujol",
     "phone" : "668668669",
-    "products": [1111111]
   },
   {
     "_id" : 555558,
@@ -46,7 +43,6 @@ const clients = [
     "givenName" : "Marta",
     "familyName1" : "Rovira",
     "phone" : "668668670",
-    "products": [1111112]
   },
   {
     "_id" : 555559,
@@ -57,7 +53,6 @@ const clients = [
     "givenName" : "Pere",
     "familyName1" : "Aragonès",
     "phone" : "668668671",
-    "products": [1111111, 1111112]
   },
   {
     "_id" : 555560,
@@ -68,7 +63,6 @@ const clients = [
     "givenName" : "Anna",
     "familyName1" : "Gabriel",
     "phone" : "668668672",
-    "products": []
   },
   {
     "_id" : 555561,
@@ -78,8 +72,7 @@ const clients = [
     "customerId" : "11117",
     "givenName" : "Carles",
     "familyName1" : "Boix",
-    "phone" : "668668673",
-    "products": [1111111]
+    "phone" : "668668673"
   },
   {
     "_id" : 555562,
@@ -90,7 +83,6 @@ const clients = [
     "givenName" : "Laura",
     "familyName1" : "Borràs",
     "phone" : "668668674",
-    "products": [1111112]
   },
   {
     "_id" : 555563,
@@ -101,7 +93,6 @@ const clients = [
     "givenName" : "Oriol",
     "familyName1" : "Junqueras",
     "phone" : "668668675",
-    "products": [1111111, 1111112]
   },
   {
     "_id" : 555564,
@@ -112,7 +103,6 @@ const clients = [
     "givenName" : "Meritxell",
     "familyName1" : "Serret",
     "phone" : "668668676",
-    "products": []
   }
 ];
 

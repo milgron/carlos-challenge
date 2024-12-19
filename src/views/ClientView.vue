@@ -1,8 +1,12 @@
 <script setup>
 import { ref, onMounted } from 'vue';
-import { useRoute } from 'vue-router';
+import { useRoute, useRouter } from 'vue-router';
 import { useClientsStore } from '../store/clients';
-// import Button from 'primevue/button';
+import Layout from '../layouts/main.vue';
+import Button from 'primevue/button';
+import PageTitle from '../components/PageTitle.vue';
+import CustomerDetails from '../components/CustomerDetails.vue';
+import AssociatedProducts from '../components/AssociatedProducts.vue';
 const clientsStore = useClientsStore();
 
 const { setSelectedClientById, getSelectedClient } = clientsStore;
@@ -11,6 +15,8 @@ const route = useRoute();
 const clientId = route.params.id;
 const client = ref(null);
 const loading = ref(null);
+const router = useRouter();
+const associatedProducts = ref(null);
 
 onMounted(async () => {
   loading.value = true;
@@ -24,16 +30,27 @@ onMounted(async () => {
     loading.value = false;
   }
 });
+
+
 </script>
 
 <template>
-  <div class="bg-gray-100" v-if="client">
-    <h1 class="text-3xl font-bold underline">
-      {{ client.givenName }} {{ client.familyName1 }}
-      <!-- <Button label="Back" @click="goBack" /> -->
-    </h1>
-  </div>
-  <div class="bg-gray-100" v-else>
-    <p>Loading...</p>
-  </div>
+  <Layout>
+    <div class="flex gap-4 flex-col" v-if="client">
+      <div class="flex justify-between">
+        <PageTitle title="Client details" />
+        <Button label="Back" @click="router.back()" />
+      </div>
+      <section class="flex gap-8">
+        <div class="bg-gray-200 rounded-full w-24 h-24 flex justify-center items-center">
+          <h2 class="text-xs">Profile picture</h2>
+        </div>
+        <CustomerDetails :client="client" />
+        <AssociatedProducts :products="associatedProducts" :customerId="client.customerId" />
+      </section>
+    </div>
+    <div v-else>
+      <p>Loading...</p>
+    </div>
+  </Layout>
 </template>
