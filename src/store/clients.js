@@ -22,18 +22,18 @@ export const useClientsStore = defineStore('clients', () => {
 
   // API Handlers
   const fetchClients = async () => {
-    const response = await fetch('http://localhost:3000/api/clients');
+    const response = await fetch(`${import.meta.env.VITE_API_URL}/api/clients`);
     clients.value = await response.json();
   };
 
   const fetchClientById = async (id) => {
-    const response = await fetch(`http://localhost:3000/api/clients/${id}`);
+    const response = await fetch(`${import.meta.env.VITE_API_URL}/api/clients/${id}`);
     selectedClient.value = await response.json();
   };
 
   const fetchClientProducts = async () => {
     const id = selectedClient.value.customerId;
-    const response = await fetch(`http://localhost:3000/api/products/${id}`);  
+    const response = await fetch(`${import.meta.env.VITE_API_URL}/api/products/${id}`);  
     const products = await response.json();
     if(products.length === 0) return [];
     return products;

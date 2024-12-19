@@ -42,7 +42,7 @@ const handleRowClick = (event) => {
   <Layout>
     <div class="flex justify-between lg:items-center mb-8 flex-col lg:flex-row gap-4">
       <PageTitle title="Clients list" />
-      <div class="flex gap-4 justify-between lg:justify-start">
+      <div class="flex gap-4">
         <InputText v-model="filters.global.value" placeholder="Search client details" />
         <Button type="button" icon="pi pi-filter-slash" label="Clear" outlined @click="clearFilter()" severity="contrast" class="filter-button text-center"/>
       </div>

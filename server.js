@@ -4,26 +4,32 @@ import { fileURLToPath } from 'url';
 import clientsRoutes from "./src/api/routes/clients.js";
 import productsRoutes from "./src/api/routes/products.js";
 import cors from "cors";
+import dotenv from "dotenv";
+
+dotenv.config();
+
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-const port = process.env.PORT || 3000;
 const app = express();
+const port = process.env.PORT || 3000;
 
 app.use(cors({
-  origin: 'http://localhost:5173',
+  origin: process.env.CORS_ORIGIN || 'http://localhost:5173'
 }));
+
 app.use(express.json());
-app.use(express.static(path.join(__dirname, '../dist')));
+app.use(express.static(path.join(__dirname, 'dist')));
 
 app.use("/api/clients", clientsRoutes);
 app.use("/api/products", productsRoutes);
+
 app.get('*', (req, res) => {
-  if (!req.path.startsWith('/api')) {
-    res.sendFile(path.join(__dirname, 'index.html'));
-  }
+  res.sendFile(path.join(__dirname, 'dist', 'index.html'));
 });
 
-app.listen(port, () => {
-  console.log("Server listening on port", port);
+app.listen(Number(port), '0.0.0.0', () => {
+  console.log(`Running on port ${port}`);
+}).on('error', (err) => {
+  console.error('Error al iniciar el servidor:', err);
 });
