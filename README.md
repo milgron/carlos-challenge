@@ -7,6 +7,7 @@
 - Vite
 - Node.js
 - Express
+- PrimeVue
 
 ### Deployment
 - Fly.io : https://carlos-challenge.fly.dev/
