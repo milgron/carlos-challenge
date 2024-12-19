@@ -30,8 +30,6 @@ onMounted(async () => {
     loading.value = false;
   }
 });
-
-
 </script>
 
 <template>

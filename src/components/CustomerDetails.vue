@@ -11,7 +11,7 @@ const props = defineProps({
       <p>Customer ID: {{ client.customerId }}</p>
       <p>Email: {{ client.email }}</p>
       <p>Phone: {{ client.phone }}</p>
-      <p><span class="underline">{{ client.docType }}:</span> {{ client.docNum }}</p>
+      <p>{{ client.docType }}: {{ client.docNum }}</p>
     </div>
   </section>
 </template>
