@@ -41,7 +41,7 @@ onMounted(async () => {
         <PageTitle title="Client details" />
         <Button label="Back" @click="router.back()" />
       </div>
-      <section class="flex gap-8">
+      <section class="flex gap-8 flex-col lg:flex-row">
         <div class="bg-gray-200 rounded-full w-24 h-24 flex justify-center items-center">
           <h2 class="text-xs">Profile picture</h2>
         </div>
