@@ -20,7 +20,7 @@ export const useClientsStore = defineStore('clients', () => {
     await fetchClientById(id);
   };
 
-  // API Handlers
+  // API Handlers (Ideally these would be separated services to interact with the API)
   const fetchClients = async () => {
     const response = await fetch(`${import.meta.env.VITE_API_URL}/api/clients`);
     clients.value = await response.json();
